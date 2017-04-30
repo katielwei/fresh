@@ -1,0 +1,24 @@
+from random import *
+import numpy as np
+mean20earning=([])
+sum20earning=([])
+coins = np.array([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
+#repeat this 500000000000000 times
+while len(mean20earning)<500000000000000:
+    shuffle(coins)
+    earning=([coins[0]],[abs(coins[0]-coins[1])],[abs(coins[1]-coins[2])],[abs(coins[2]-coins[3])],[abs(coins[3]-coins[4])],[abs(coins[4]-coins[5])],[abs(coins[5]-coins[6])],[abs(coins[6]-coins[7])],[abs(coins[7]-coins[8])],[abs(coins[8]-coins[9])],[abs(coins[9]-coins[10])],[abs(coins[10]-coins[11])],[abs(coins[11]-coins[12])],[abs(coins[12]-coins[13])],[abs(coins[13]-coins[14])],[abs(coins[14]-coins[15])],[abs(coins[15]-coins[16])],[abs(coins[16]-coins[17])],[abs(coins[17]-coins[18])],[abs(coins[18]-coins[19])])
+    np.mean(earning)
+    sum20earning.extend([np.sum(earning)])
+    mean20earning.extend([np.mean(earning)])
+
+#mean of total payment for 20 coins
+np.mean(mean20earning)
+
+#standard deviation of total payment for 20 coins
+np.std(mean20earning)
+
+#probability of total payment greater or equal to 160 for 20 coins
+from __future__ import division
+sum20earningover160 = [i for i in sum20earning if i >= 160]
+len(sum20earningover160)/len(mean20earning)
+
